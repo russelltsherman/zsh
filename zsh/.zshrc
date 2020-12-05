@@ -95,7 +95,8 @@ PROMPT='%F{cyan}%1 %/ %f %# '
 # load local configuration stored in $ZDOTDEEDIR
 if [ -d $ZDOTDEEDIR ]
 then
-  for i in $ZDOTDEEDIR/*.zsh; do
+  for i in $ZDOTDEEDIR/*.zsh
+  do
     source $i
   done
 fi

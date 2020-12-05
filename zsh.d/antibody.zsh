@@ -3,4 +3,4 @@
 # https://github.com/unixorn/awesome-zsh-plugins#antibody
 
 # if antibody command is installed.. initialize it
-[ $commands[antibody] ] && source <(antibody init)
+chk::command 'antibody' && source <(antibody init)
