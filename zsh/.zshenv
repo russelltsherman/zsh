@@ -11,6 +11,17 @@
 
 # If ZDOTDIR is not set, then the value of HOME is used; this is the usual case.
 
+# if XDG_CONFIG_HOME is set we will respect it.. otherwise will set it to $HOME/.config
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config/"}"
+[ -d "$XDG_CONFIG_HOME" ] || mkdir -p "$XDG_CONFIG_HOME" # ensure $XDG_CONFIG_HOME dir exists
+
 # our .zshenv is symlinked to $HOME so that the zshell will load it automatically
 # with this var we are telling zshell to look to ${HOME}/.zsh/ for the remaining zshell startup files
 export ZDOTDIR="${ZDOTDIR:-"${HOME}/.zsh/"}"
+[ -d "$ZDOTDIR" ] || mkdir -p "$ZDOTDIR" # ensure $ZDOTDIR dir exists
+
+export ZDOTCACHEDIR="${ZDOTCACHEDIR:-"${HOME}/.cache/zsh"}"
+[ -d "$ZDOTCACHEDIR" ] || mkdir -p "$ZDOTCACHEDIR" # ensure $ZDOTCACHEDIR dir exists
+
+# if user has a home bin directory add it to the path
+[ -d "${HOME}/bin" ] && export PATH="$HOME/bin:$PATH"
