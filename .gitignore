@@ -3,3 +3,6 @@
 
 #ignore brewfile.lock
 Brewfile.lock*
+
+# ignore local customizations
+zsh.d/*

@@ -2,13 +2,13 @@
 
 current_dir = $(shell pwd)
 
-export ZDOTDIR ?= ${HOME}/.zsh
-
 ## load dependencies for this project
 bootstrap:
 	# symlink local zsh directory to $ZDOTDIR
-	-ln -sv $(current_dir)/zsh ${ZDOTDIR}
+	-ln -s $(current_dir)/zsh ${HOME}/.zsh
+	# symlink local zsh.d directory to $ZDOTDEEDIR
+	-ln -s $(current_dir)/zsh.d ${HOME}/.zsh.d
 	# symlink .zshenv to $HOME so that system will source it automatically
-	-ln -sv $(current_dir)/zsh/.zshenv ${HOME}/.zshenv
+	-ln -s $(current_dir)/zsh/.zshenv ${HOME}/.zshenv
 	make brew
 _PHONY: bootstrap

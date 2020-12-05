@@ -20,6 +20,10 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config/"}"
 export ZDOTDIR="${ZDOTDIR:-"${HOME}/.zsh/"}"
 [ -d "$ZDOTDIR" ] || mkdir -p "$ZDOTDIR" # ensure $ZDOTDIR dir exists
 
+# if ZDOTDEEDIR is already set we will respect it.. otherwise set it to ${HOME}/.zsh.d/
+export ZDOTDEEDIR="${ZDOTDEEDIR:-"${HOME}/.zsh.d/"}"
+[ -d "$ZDOTDEEDIR" ] || mkdir -p "$ZDOTDEEDIR" # ensure $ZDOTDEEDIR dir exists
+
 export ZDOTCACHEDIR="${ZDOTCACHEDIR:-"${HOME}/.cache/zsh"}"
 [ -d "$ZDOTCACHEDIR" ] || mkdir -p "$ZDOTCACHEDIR" # ensure $ZDOTCACHEDIR dir exists
 
