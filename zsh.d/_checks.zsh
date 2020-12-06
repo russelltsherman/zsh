@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 
 # chk::contains returns true if a given list contains a given value
 # usage:
@@ -39,6 +38,13 @@ chk::file() {
   [ -f "$file" ]
 }
 
+# chk::debian returns true if this OS is Debian Linux
+# usage:
+#     chk::debian && echo::green "this is Debian Linux"
+chk::debian() {
+  uname -a | grep "Debian"
+}
+
 # chk::dir returns true if a given value is a directory
 # usage:
 #     chk::dir ~/ || echo::red "not a directory"
@@ -70,9 +76,9 @@ chk::hg() {
 
 # chk::linux returns true if this OS is Linux
 # usage:
-#     chk::linux || echo::red "this isn't Linux"
+#     chk::linux && echo::green "this is Linux"
 chk::linux() {
-  [[ $(uname) == "Linux" ]]
+  uname -a | grep "Linux"
 }
 
 # chk::number returns true if a given value is a number
@@ -85,10 +91,27 @@ chk::number() {
 
 # chk::osx returns true if this OS is Darwin
 # usage:
-#     chk::osx || echo::red "this isn't Mac OS"
+#     chk::osx && echo::green "this is Mac OS"
 chk::osx() {
-  [[ $(uname) == "Darwin" ]]
+  uname -a | grep "Darwin"
 }
+
+# chk::ubuntu returns true if this OS is Ubuntu Linux
+# usage:
+#     chk::ubuntu && echo::green "this is Ubuntu Linux"
+chk::ubuntu() {
+  uname -a | grep "Ubuntu"
+}
+
+# chk::osx returns true if this OS is Windows
+# usage:
+#     chk::windows && echo::green "this is Windows"
+chk::windows() {
+  [[ "${$(uname)[1,10]}" == "MINGW32_NT" ]]
+}
+
+
+
 
 ## it seems a bit redundant to have negative checks given that positive checks can be used for this
 # chk::empty returns true if a given value is not empty

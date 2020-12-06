@@ -15,20 +15,20 @@ if [ -z "$IMPROMPTU_PROMPT_ORDER" ]
 then
   IMPROMPTU_PROMPT_ORDER=(
     vi-mode       # Vi-mode indicator
-    host          # Hostname segment
     user          # Username segment
+    host          # Hostname segment
+    aws           # Amazon Web Services segment
     aws-vault     # Amazon Web Services segment
     dir           # Current directory segment
     package       # Package version segment
     nvm           # Node.js section segment
-    ruby          # Ruby segment
+    rvm           # Ruby segment
     golang        # Go segment
     docker        # Docker segment
-    aws           # Amazon Web Services segment
+    tfenv         # Terraform workspace segment
+    tgenv         # Terragrunt workspace segment
     venv          # virtualenv segment
-    pyenv         # Pyenv segment
     kubecontext   # Kubectl context segment
-    terraform     # Terraform workspace segment
     git           # Git segment
     exec_time     # Execution time segment
     line_sep      # Line break segment
@@ -99,7 +99,7 @@ impromptu::compose_prompt() {
   do
     if chk::defined "impromptu::prompt::$section"
     then
-      impromptu::prompt::$section
+      "impromptu::prompt::$section" || continue
     fi
   done
 }
@@ -202,8 +202,8 @@ prompt_impromptu_setup() {
 
   # Expose IMPROPMTU to environment variables
   PROMPT='$(impromptu::prompt)'
+  RPROMPT='$(impromptu::rprompt)'
   PS2='$(impromptu::ps2)'
-  RPS1='$(impromptu::rprompt)'
 }
 
 # ------------------------------------------------------------------------------

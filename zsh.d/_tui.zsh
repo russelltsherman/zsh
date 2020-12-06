@@ -35,7 +35,6 @@ tui::bot_confirm() {
   local msg="${1:-}"
   tui::bot "$msg" 1>&2
   echo "Press any key to continue." 1>&2
-  # shellcheck disable=SC2162
   read
 }
 

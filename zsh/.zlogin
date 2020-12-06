@@ -11,4 +11,4 @@
 #   Rather, it should be used to set the terminal type and run a series of external commands (fortune, msgs, etc).
 
 # if pfetch command is istalled AND ENABLED call it once on login
-[ $commands[pfetch] ] && [ "${PFETCH_ENABLE}" = "true" ] && pfetch
+[ $commands[pfetch] ] && [[ "${PFETCH_ENABLE}" == "true" ]] && pfetch
