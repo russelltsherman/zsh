@@ -1,6 +1,6 @@
 if chk::command "skaffold"
 then
-
+  ;
 else
   echo "skaffold not found. execute 'skaffold::install' to install it."
 
