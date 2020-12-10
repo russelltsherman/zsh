@@ -12,7 +12,6 @@ then
   # https://github.com/russelltsherman/zsh-async
   antibody bundle russelltsherman/zsh-async branch:main
 
-
   # https://github.com/russelltsherman/zsh-aws-vault
   # antibody bundle russelltsherman/zsh-aws-vault branch:main
 
@@ -21,9 +20,6 @@ then
 
   # https://github.com/russelltsherman/zsh-clipboard
   # antibody bundle russelltsherman/zsh-clipboard branch:main
-
-  # https://github.com/zsh-users/zsh-completions
-  antibody bundle zsh-users/zsh-completions
 
   # activate direnv 
   # https://github.com/russelltsherman/zsh-direnv
@@ -52,10 +48,6 @@ then
   # a collection of helper scripts for working with git
   # https://github.com/russelltsherman/zsh-github
   antibody bundle russelltsherman/zsh-github branch:main
-
-  # configure golang environment
-  # https://github.com/russelltsherman/zsh-golang
-  antibody bundle russelltsherman/zsh-golang branch:main
 
   # antibody bundle russelltsherman/zsh-jvm branch:main
 
@@ -91,12 +83,6 @@ then
   # https://github.com/russelltsherman/zsh-shell
   antibody bundle russelltsherman/zsh-shell branch:main
 
-  # https://github.com/russelltsherman/zsh-tfenv
-  antibody bundle russelltsherman/zsh-tfenv
-
-  # https://github.com/russelltsherman/zsh-tgenv
-  antibody bundle russelltsherman/zsh-tgenv
-
   # https://github.com/russelltsherman/tmux-xpanes
   antibody bundle russelltsherman/tmux-xpanes branch:main
 
@@ -117,9 +103,14 @@ then
   # https://www.github.com/russelltsherman/zsh-z.git
   antibody bundle russelltsherman/zsh-z branch:main
 
+
+
   # Fish-like fast/unobtrusive autosuggestions for zsh.
   # https://github.com/zsh-users/zsh-autosuggestions
   antibody bundle zsh-users/zsh-autosuggestions
+
+  # https://github.com/zsh-users/zsh-completions
+  antibody bundle zsh-users/zsh-completions
 
   # This is a clean-room implementation of the Fish shell's history search feature, where you can type in any part of any command from history and then press chosen keys, such as the UP and DOWN arrows, to cycle through matches.
   # https://github.com/zsh-users/zsh-history-substring-search
