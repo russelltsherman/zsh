@@ -1,6 +1,4 @@
-#!/usr/bin/env zsh
-
-if [ $commands[antibody] ]
+if chk::command "antibody"
 then
   # https://github.com/russelltsherman/zsh-256color
   antibody bundle russelltsherman/zsh-256color branch:main

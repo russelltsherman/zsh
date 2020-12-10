@@ -1,4 +1,4 @@
-if [[ $commands[gibo] ]]
+if chk::command "gibo"
 then
 
 else

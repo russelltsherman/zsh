@@ -1,4 +1,4 @@
-if [[ $commands[helm] ]]
+if chk::command "helm"
 then
 
 else

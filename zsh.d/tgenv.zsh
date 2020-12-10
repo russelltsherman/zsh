@@ -22,7 +22,7 @@ then
     # Show TGENV status only for terragrunt.hcl folders
     [[ -f .terrgrunt-version || -f terragrunt.hcl ]] || return
 
-    version=$(terragrunt version | grep TGENV_VERSION | awk '{ print $4 }' 2>/dev/null)
+    local version="$(terragrunt version | grep TGENV_VERSION | awk '{ print $4 }' 2>/dev/null)"
 
     impromptu::segment "$IMPROMPTU_TGENV_COLOR" \
       "${IMPROMPTU_TGENV_PREFIX}${IMPROMPTU_TGENV_SYMBOL}${version}${IMPROMPTU_TGENV_SUFFIX}"
@@ -41,4 +41,3 @@ else
     tgenv use 0.23.40
   }
 fi
-

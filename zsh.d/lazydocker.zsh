@@ -1,4 +1,4 @@
-if [[ $commands[lazydocker] ]]
+if chk::command "lazydocker"
 then
 
 else

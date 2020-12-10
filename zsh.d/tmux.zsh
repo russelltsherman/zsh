@@ -1,4 +1,4 @@
-if [[ $commands[tmux] ]]
+if chk::command "mutt"
 then
 
 else

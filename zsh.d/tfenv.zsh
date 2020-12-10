@@ -24,7 +24,7 @@ then
     local terraform_workspace=$(<.terraform/environment)
     [[ -z $terraform_workspace ]] && return
 
-    version="$(terraform version | awk '{ print $2 }')"
+    local version="$(terraform version | awk '{ print $2 }')"
 
     impromptu::segment "$IMPROMPTU_TFENV_COLOR" \
       "${IMPROMPTU_TFENV_PREFIX}${IMPROMPTU_TFENV_SYMBOL}${terraform_workspace}${IMPROMPTU_TFENV_SUFFIX}"

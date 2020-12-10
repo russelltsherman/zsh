@@ -1,4 +1,4 @@
-if [[ $commands[gopass] ]]
+if chk::command "gopass"
 then
 
 else

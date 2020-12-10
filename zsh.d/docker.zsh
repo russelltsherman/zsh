@@ -1,5 +1,4 @@
-
-if [[ $commands[docker] ]]
+if chk::command "docker"
 then
   alias d="docker"
   alias db='docker build'

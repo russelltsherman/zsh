@@ -1,4 +1,4 @@
-if [[ $commands[minikube] ]]
+if chk::command "minikube"
 then
 
 else

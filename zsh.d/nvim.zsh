@@ -1,4 +1,4 @@
-if [[ $commands[nvim] ]]
+if chk::command "nvim"
 then
 
 else

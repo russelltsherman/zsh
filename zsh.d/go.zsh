@@ -1,4 +1,4 @@
-if [[ $commands[go] ]]
+if chk::command "go"
 then
 
   GOBIN="${HOME}/bin"
@@ -40,7 +40,7 @@ else
     echo "go not found. execute 'go::install' to install it."
 
     go::install() {
-      version="1.15.6"
+      local version="1.15.6"
 
       if chk::osx
       then
@@ -57,4 +57,3 @@ else
       fi
     }
 fi
-

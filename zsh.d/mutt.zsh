@@ -1,4 +1,4 @@
-if [[ $commands[mutt] ]]
+if chk::command "mutt"
 then
 
 else

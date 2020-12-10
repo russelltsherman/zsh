@@ -1,4 +1,4 @@
-if [[ $commands[lazygit] ]]
+if chk::command "lazygit"
 then
 
 else

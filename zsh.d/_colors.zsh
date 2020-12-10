@@ -2,7 +2,7 @@
 # This file is named _colors.zsh. The leading underscore is needed to ensure this file loads before
 # other files that depend on the functions defined here. This file has no dependencies and should come first.
 
-if [[ $commands[tput] ]]
+if chk::command "tput"
 then
   # tput is installed we will use it for colors
   __clr_reset=$(tput sgr0)
