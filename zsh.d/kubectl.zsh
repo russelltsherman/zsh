@@ -16,4 +16,3 @@ else
     mv kubectl ~/bin/kubectl
   }
 fi
-
