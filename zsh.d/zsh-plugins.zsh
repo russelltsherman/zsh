@@ -63,9 +63,6 @@ then
   # https://github.com/russelltsherman/zsh-ports
   antibody bundle russelltsherman/zsh-ports branch:main 
 
-  # https://github.com/russelltsherman/zsh-rvm
-  antibody bundle russelltsherman/zsh-rvm branch:main
-
   # A modified version of oh-my-zsh's plugin colored-man-pages
   # optimized for solarized dark theme in terminal.
   # https://github.com/russelltsherman/zsh-solarized-man
