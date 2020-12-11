@@ -84,9 +84,6 @@ then
   # https://github.com/russelltsherman/zsh-wakatime
   antibody bundle russelltsherman/zsh-wakatime branch:main
 
-  # https://github.com/russelltsherman/zsh-yarn
-  antibody bundle russelltsherman/zsh-yarn branch:main
-
   # z - jump around
   # https://www.github.com/russelltsherman/zsh-z.git
   antibody bundle russelltsherman/zsh-z branch:main
