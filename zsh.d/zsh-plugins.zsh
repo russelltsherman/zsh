@@ -10,9 +10,6 @@ then
   # https://github.com/russelltsherman/zsh-async
   antibody bundle russelltsherman/zsh-async branch:main
 
-  # https://github.com/russelltsherman/zsh-aws-vault
-  # antibody bundle russelltsherman/zsh-aws-vault branch:main
-
   # https://github.com/russelltsherman/zsh-bd
   # antibody bundle russelltsherman/zsh-bd branch:main
 
