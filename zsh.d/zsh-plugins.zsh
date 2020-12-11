@@ -56,10 +56,6 @@ then
 
   # antibody bundle russelltsherman/zsh-mkc branch:main
 
-  # activate node version manager
-  # https://github.com/russelltsherman/zsh-nvm
-  antibody bundle russelltsherman/zsh-nvm branch:main
-
   # https://github.com/russelltsherman/zsh-pfetch
   antibody bundle russelltsherman/zsh-pfetch branch:main 
 
