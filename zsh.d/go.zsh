@@ -37,23 +37,23 @@ then
   }
 
 else
-    echo "go not found. execute 'go::install' to install it."
+  echo "go not found. execute 'go::install' to install it."
 
-    go::install() {
-      local version="1.15.6"
+  go::install() {
+    local version="1.15.6"
 
-      if chk::osx
-      then
-        wget https://golang.org/dl/go$version.darwin-amd64.pkg
-        open go$version.darwin-amd64.pkg
-      fi
-      
-      if chk::ubuntu
-      then
-        wget https://golang.org/dl/go$version.linux-amd64.tar.gz
-        sudo tar -xvf go$version.linux-amd64.tar.gz
-        sudo mv go /usr/local
-        rm go$version.linux-amd64.tar.gz
-      fi
-    }
+    if chk::osx
+    then
+      wget https://golang.org/dl/go$version.darwin-amd64.pkg
+      open go$version.darwin-amd64.pkg
+    fi
+    
+    if chk::ubuntu
+    then
+      wget https://golang.org/dl/go$version.linux-amd64.tar.gz
+      sudo tar -xvf go$version.linux-amd64.tar.gz
+      sudo mv go /usr/local
+      rm go$version.linux-amd64.tar.gz
+    fi
+  }
 fi

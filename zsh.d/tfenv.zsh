@@ -2,7 +2,6 @@ export TFENV_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.tfenv" |
 
 if chk::command "tfenv"
 then
-
   # ------------------------------------------------------------------------------
   # Impromptu Prompt Segment Function
   # ------------------------------------------------------------------------------
