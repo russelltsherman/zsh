@@ -7,6 +7,14 @@ pkg::install::brew() {
   brew install "$pkg"
 }
 
+# install package using homebrew cask
+# USAGE:
+#   pkg::install::brew::cask packagename
+pkg::install::brew::cask() {
+  local pkg="${1}"
+  brew cask install "$pkg"
+}
+
 # install package using apt install
 # USAGE:
 #   pkg::install::debian packagename [reponame]
