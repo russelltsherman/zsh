@@ -21,5 +21,3 @@ else
     fi
   }
 fi
-
-
