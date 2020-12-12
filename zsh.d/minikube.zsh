@@ -9,8 +9,9 @@ else
     
     if chk::ubuntu
     then
-      curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
-      sudo dpkg -i minikube_latest_amd64.deb
+      wget https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb -O ~/Download/minikube.deb
+      sudo apt install ~/Download/minikube.deb
+      rm ~/Download/minikube.deb
     fi
   }
 fi
