@@ -12,7 +12,7 @@ pkg::install::brew() {
 #   pkg::install::brew::cask packagename
 pkg::install::brew::cask() {
   local pkg="${1}"
-  brew cask install "$pkg"
+  brew install --cask "$pkg"
 }
 
 # install package using apt install
