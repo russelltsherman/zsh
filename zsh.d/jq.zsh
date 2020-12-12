@@ -12,7 +12,7 @@ else
     chk::osx && platform="osx-amd64"
     chk::linux && platform="linux64"
 
-    wget "https://github.com/stedolan/yq/releases/download/yq-$version/yq-$platform" -O ~/bin/yq
-    chmod +x ~/bin/yq
+    wget "https://github.com/stedolan/jq/releases/download/jq-$version/jq-$platform" -O ~/bin/jq
+    chmod +x ~/bin/jq
   }
 fi
