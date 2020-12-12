@@ -7,8 +7,8 @@ else
   echo "kpoof not found. execute 'kpoof::install' to install it."
 
   kpoof::install() {
-    git clone https://https://github.com/farmotive/kpoof $KPOOF_DIR
-    ln -s $KPOOF_DIR/bin/* ~/bin
+    git clone https://github.com/farmotive/kpoof $KPOOF_DIR
+    ln -s $KPOOF_DIR/kpoof ~/bin
   }
 fi
 

@@ -6,23 +6,15 @@ else
 
   draft::install() {
     local version="0.16.0"
+    local platform
 
-    if chk::osx
-    then
-      wget https://azuredraft.blob.core.windows.net/draft/draft-v$version-darwin-amd64.tar.gz
-      tar -xvf draft-v$version-darwin-amd64.tar.gz
-      mv darwin-amd64/draft ~/bin
-      rm -rf darwin-amd64
-      rm draft-v$version-darwin-amd64.tar.gz
-    fi
-    
-    if chk::ubuntu
-    then
-      wget https://azuredraft.blob.core.windows.net/draft/draft-v$version-linux-amd64.tar.gz
-      tar -xvf draft-v$version-linux-amd64.tar.gz
-      mv linux-amd64/draft ~/bin
-      rm -rf linux-amd64
-      rm draft-v$version-linux-amd64.tar.gz
-    fi
+    chk::osx && platform="darwin"
+    chk::linux && platform="linux"
+
+    wget https://azuredraft.blob.core.windows.net/draft/draft-v${version}-${platform}-amd64.tar.gz -O draft.tar.gz
+    tar -xvf draft.tar.gz
+    mv ${platform}-amd64/draft ~/bin
+    rm -rf ${platform}-amd64
+    rm draft.tar.gz
   }
 fi

@@ -9,9 +9,9 @@ else
     
     if chk::ubuntu || chk::debian
     then
-      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      sudo apt install google-chrome-stable_current_amd64.deb
-      rm google-chrome-stable_current_amd64.deb
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O ~/Downloads/google-chrome.deb
+      sudo apt install ~/Downloads/google-chrome.deb
+      rm ~/Downloads/google-chrome.deb
     fi
   }
 fi

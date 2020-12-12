@@ -25,10 +25,7 @@ else
   echo "docker not found. execute 'docker::install' to install it."
 
   docker::install() {
-    if chk::osx
-    then
-      brew cask install docker
-    fi
+    chk::osx && pkg::install::brew::cask "docker"
     
     if chk::debian || chk::ubuntu
     then
