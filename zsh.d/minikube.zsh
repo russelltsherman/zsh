@@ -10,7 +10,7 @@ else
     if chk::ubuntu
     then
       wget https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb -O ~/Download/minikube.deb
-      sudo apt install ~/Download/minikube.deb
+      sudo apt install -y ~/Download/minikube.deb
       rm ~/Download/minikube.deb
     fi
   }

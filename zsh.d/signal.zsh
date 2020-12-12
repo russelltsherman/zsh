@@ -1,5 +1,5 @@
 
-if chk::command "signal"
+if chk::app "signal"
 then
 
 else
@@ -17,7 +17,7 @@ else
       echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" |\
         sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
       # 3. Update your package database and install signal
-      sudo apt update && sudo apt install signal-desktop
+      sudo apt update && sudo apt install -y signal-desktop
     fi
   }
 fi

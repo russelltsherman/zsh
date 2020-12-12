@@ -1,3 +1,11 @@
+# chk::app checks if a given app is installed
+# usage:
+#     chk::app "slack" || echo::red "slack not installed"
+chk::app() {
+  local app="${1}"
+  chk::osx && mdfind "kMDItemKind == 'Application'" | grep -i "${app//-/ }" &> /dev/null && return 0
+  chk::linux && chk::command "$pkg" && return 0
+}
 
 # chk::contains returns true if a given list contains a given value
 # usage:
@@ -42,7 +50,7 @@ chk::file() {
 # usage:
 #     chk::debian && echo::green "this is Debian Linux"
 chk::debian() {
-  uname -a | grep "Debian"
+  uname -a | grep "Debian" &> /dev/null
 }
 
 # chk::dir returns true if a given value is a directory
@@ -78,7 +86,7 @@ chk::hg() {
 # usage:
 #     chk::linux && echo::green "this is Linux"
 chk::linux() {
-  uname -a | grep "Linux"
+  uname -a | grep "Linux" &> /dev/null
 }
 
 # chk::number returns true if a given value is a number
@@ -93,21 +101,21 @@ chk::number() {
 # usage:
 #     chk::osx && echo::green "this is Mac OS"
 chk::osx() {
-  uname -a | grep "Darwin"
+  uname -a | grep "Darwin" &> /dev/null
 }
 
 # chk::ubuntu returns true if this OS is Ubuntu Linux
 # usage:
 #     chk::ubuntu && echo::green "this is Ubuntu Linux"
 chk::ubuntu() {
-  uname -a | grep "Ubuntu"
+  uname -a | grep "Ubuntu" &> /dev/null
 }
 
 # chk::osx returns true if this OS is Windows
 # usage:
 #     chk::windows && echo::green "this is Windows"
 chk::windows() {
-  [[ "${$(uname)[1,10]}" == "MINGW32_NT" ]]
+  uname -a | grep "MINGW32_NT" &> /dev/null
 }
 
 

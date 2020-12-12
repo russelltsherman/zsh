@@ -1,5 +1,5 @@
 
-if chk::command "kicad"
+if chk::app "kicad"
 then
 
 else
