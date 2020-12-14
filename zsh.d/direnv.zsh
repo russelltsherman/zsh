@@ -13,9 +13,9 @@ else
   echo "direnv not found. execute 'direnv::install' to install it."
 
   direnv::install() {
-    asdf plugin-add direnv
-    asdf install direnv 2.20.0
-    asdf global direnv 2.20.0
+    asdf plugin add direnv
+    asdf install direnv
+    asdf global direnv $(asdf list direnv)
 
     cat > ~/.config/direnv/direnvrc <<- EOM
 # makes the use asdf feature available
