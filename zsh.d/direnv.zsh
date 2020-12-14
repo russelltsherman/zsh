@@ -17,7 +17,7 @@ else
     asdf install direnv
     asdf global direnv $(asdf list direnv)
 
-    cat > ~/.config/direnv/direnvrc <<- EOM
+    cat > ${XDG_CONFIG_HOME}/direnv/direnvrc <<- EOM
 # makes the use asdf feature available
 source "$(asdf direnv hook asdf)"
 
