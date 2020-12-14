@@ -1,5 +1,5 @@
 
-if chk::command "firefox"
+if chk::app "firefox"
 then
 
 else

@@ -1,6 +1,6 @@
 export DROPBOX_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.dropbox" || printf %s "${XDG_CONFIG_HOME}/dropbox")"
 
-if chk::command "dropbox"
+if chk::app "dropbox"
 then
 
 else
