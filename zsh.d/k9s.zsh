@@ -13,6 +13,7 @@ else
 
     wget "https://github.com/derailed/k9s/releases/download/v${version}/k9s_${platform}_x86_64.tar.gz"
     tar -xvf "k9s_${platform}_x86_64.tar.gz"
+    mv k9s ~/bin
     rm "k9s_${platform}_x86_64.tar.gz"
     rm "README.md"
     rm "LICENSE"
