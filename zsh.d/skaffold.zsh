@@ -13,5 +13,6 @@ else
 
     wget https://github.com/GoogleContainerTools/skaffold/releases/download/v${version}/skaffold-${platform}-amd64
     mv skaffold-${platform}-amd64 ~/bin/skaffold
+    chmod +x ~/bin/skaffold
   }
 fi
