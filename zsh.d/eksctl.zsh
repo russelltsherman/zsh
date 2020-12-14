@@ -1,6 +1,6 @@
 if chk::command "eksctl"
 then
-  eval $(eksctl completion $SHELL)
+  eval $(eksctl completion "zsh")
 else
   echo "eksctl not found. execute 'eksctl::install' to install it."
 
