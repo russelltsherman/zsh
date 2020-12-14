@@ -1,8 +1,8 @@
 export ADR_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.adr" || printf %s "${XDG_CONFIG_HOME}/adr")"
 
-if chk::command "adr"
+if chk::dir $ADR_DIR
 then
-  export PATH="${PATH}:${HOME}/.adr/src"
+  export PATH="${PATH}:${ADR_DIR}/src"
 
 else
   echo "adr-tools not found. execute 'adr::install' to install it."

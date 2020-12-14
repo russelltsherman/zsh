@@ -1,6 +1,6 @@
 export FZF_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.fzf" || printf %s "${XDG_CONFIG_HOME}/fzf")"
 
-if chk::command "fzf"
+if chk::dir "$FZF_DIR"
 then
   # Setup fzf
   [[ ! "${PATH}" == *${FZF_DIR}/bin* ]] && export PATH="${PATH:+${PATH}:}${FZF_DIR}/bin"

@@ -1,6 +1,6 @@
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
-if chk::command "nvm"
+if chk::dir "$NVM_DIR"
 then
   ##############################################################################
   # lazy load nvm
