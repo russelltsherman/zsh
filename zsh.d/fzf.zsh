@@ -1,6 +1,5 @@
-export FZF_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.fzf" || printf %s "${XDG_CONFIG_HOME}/fzf")"
 
-if chk::dir "$FZF_DIR"
+if chk::asdf::plugin 'fzf'
 then
   # Setup fzf
   [[ ! "${PATH}" == *${FZF_DIR}/bin* ]] && export PATH="${PATH:+${PATH}:}${FZF_DIR}/bin"
@@ -13,8 +12,10 @@ else
   echo "fzf not found. execute 'fzf::install' to install it."
 
   fzf::install() {
-    git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_DIR
-    $FZF_DIR/install
-  }
-fi
+    asdf plugin-add fzf https://github.com/kompiro/asdf-fzf.git
 
+    asdf install fzf 0.24.4
+    asdf global fzf $(asdf list fzf)
+  }
+
+fi
