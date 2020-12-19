@@ -1,21 +1,14 @@
-if chk::command "k9s"
+
+if chk::asdf::plugin 'k9s'
 then
   ;
 else
   echo "k9s not found. execute 'k9s::install' to install it."
 
   k9s::install() {
-    local version="0.24.2"
-    local platform
+    asdf plugin-add k9s https://github.com/looztra/asdf-k9s
 
-    chk::osx && platform="Darwin"
-    chk::linux && platform="Linux"
-
-    wget "https://github.com/derailed/k9s/releases/download/v${version}/k9s_${platform}_x86_64.tar.gz"
-    tar -xvf "k9s_${platform}_x86_64.tar.gz"
-    mv k9s ~/bin
-    rm "k9s_${platform}_x86_64.tar.gz"
-    rm "README.md"
-    rm "LICENSE"
+    asdf install k9s $(asdf list-all k9s | tail -1)
+    asdf global k9s $(asdf list k9s)
   }
 fi

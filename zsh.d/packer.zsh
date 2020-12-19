@@ -8,9 +8,8 @@ else
   packer::install() {
     asdf plugin-add packer https://github.com/Banno/asdf-hashicorp.git
 
-    asdf install packer 1.6.6
+    asdf install packer $(asdf list-all packer | tail -1)
     asdf global packer $(asdf list packer)
   }
 
 fi
-

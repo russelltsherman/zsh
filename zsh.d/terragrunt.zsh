@@ -11,7 +11,7 @@ else
     asdf install terragrunt 0.23.40
     asdf install terragrunt 0.24.4
     asdf install terragrunt 0.25.5
-    asdf install terragrunt 0.26.7
+    asdf install terragrunt $(asdf list-all terragrunt | tail -1)
     asdf global terragrunt $(asdf list terragrunt)
   }
 

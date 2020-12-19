@@ -12,7 +12,7 @@ else
     asdf install kubectl 0.17.16
     asdf install kubectl 0.18.14
     asdf install kubectl 0.19.6
-    asdf install kubectl 0.20.1
+    asdf install kubectl $(asdf list-all kubectl | tail -1)
     asdf global kubectl $(asdf list kubectl)
   }
 fi

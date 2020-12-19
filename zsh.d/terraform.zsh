@@ -11,6 +11,8 @@ else
     asdf install terraform 0.12.29
     asdf install terraform 0.13.5
     asdf install terraform 0.14.3
+
+    asdf install terraform $(asdf list-all terraform | tail -1)
     asdf global terraform $(asdf list terraform)
   }
 

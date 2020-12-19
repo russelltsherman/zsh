@@ -15,7 +15,7 @@ else
     bash -c '${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring'
     bash -c '${ASDF_DATA_DIR}/plugins/nodejs/bin/import-previous-release-team-keyring'
 
-    asdf install nodejs 14.15.1
+    asdf install nodejs $(asdf list-all nodejs | tail -1)
     asdf global nodejs $(asdf list nodejs)
   }
 

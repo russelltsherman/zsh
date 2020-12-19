@@ -1,18 +1,14 @@
-if chk::command "skaffold"
+
+if chk::asdf::plugin 'skaffold'
 then
   ;
 else
   echo "skaffold not found. execute 'skaffold::install' to install it."
 
   skaffold::install() {
-    local version="1.17.2"
-    local platform
+    asdf plugin-add skaffold https://github.com/kristoflemmens/asdf-skaffold.git
 
-    chk::osx && platform="darwin"
-    chk::linux && platform="linux"
-
-    wget https://github.com/GoogleContainerTools/skaffold/releases/download/v${version}/skaffold-${platform}-amd64
-    mv skaffold-${platform}-amd64 ~/bin/skaffold
-    chmod +x ~/bin/skaffold
+    asdf install skaffold $(asdf list-all skaffold | tail -1)
+    asdf global skaffold $(asdf list skaffold)
   }
 fi
