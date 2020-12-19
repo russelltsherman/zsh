@@ -1,6 +1,9 @@
 
 if chk::asdf::plugin 'fzf'
 then
+  fzf_version=$(asdf list fzf | tail -1 | xargs)
+  FZF_DIR="$ASDF_DATA_DIR/installs/fzf/${fzf_version}/"
+
   # Setup fzf
   [[ ! "${PATH}" == *${FZF_DIR}/bin* ]] && export PATH="${PATH:+${PATH}:}${FZF_DIR}/bin"
   # Auto-completion
