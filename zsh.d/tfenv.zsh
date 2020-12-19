@@ -1,3 +1,6 @@
+##################################################################
+# superceded by asdf terraform
+##################################################################
 # export TFENV_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.tfenv" || printf %s "${XDG_CONFIG_HOME}/tfenv")"
 
 # if chk::command "tfenv"
