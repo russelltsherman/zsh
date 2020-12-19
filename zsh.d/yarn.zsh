@@ -1,19 +1,15 @@
-if chk::command "yarn"
-then
-  PATH="${PATH}:$(yarn global bin)"
-  export PATH
 
+if chk::asdf::plugin 'yarn'
+then
+  ;
 else
   echo "yarn not found. execute 'yarn::install' to install it."
 
   yarn::install() {
-    chk::osx && pkg::install::brew "yarn"
+    asdf plugin-add yarn https://github.com/twuni/asdf-yarn.git
 
-    if chk::debian || chk::ubuntu
-    then
-      curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-      echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-      sudo apt update && sudo apt install -y yarn
-    fi
+    asdf install yarn $(asdf list-all yarn | tail -1)
+    asdf global yarn $(asdf list yarn)
   }
+
 fi
