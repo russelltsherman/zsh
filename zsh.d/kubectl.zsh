@@ -1,18 +1,18 @@
-if chk::command "kubectl"
+if chk::asdf::plugin 'kubectl'
 then
-  ;
+  eval $(kubectl completion "zsh")
+
 else
   echo "kubectl not found. execute 'kubectl::install' to install it."
 
   kubectl::install() {
-    local version=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
-    local platform
+    asdf plugin-add kubectl https://github.com/Banno/asdf-kubectl.git
 
-    chk::osx && platform="darwin"
-    chk::linux && platform="linux"
-
-    wget "https://storage.googleapis.com/kubernetes-release/release/$version/bin/$platform/amd64/kubectl"
-    chmod +x kubectl
-    mv kubectl ~/bin/kubectl
+    asdf install kubectl 0.16.15
+    asdf install kubectl 0.17.16
+    asdf install kubectl 0.18.14
+    asdf install kubectl 0.19.6
+    asdf install kubectl 0.20.1
+    asdf global kubectl $(asdf list kubectl)
   }
 fi
