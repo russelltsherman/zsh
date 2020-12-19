@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# what things do i have installed via homebrew
+# are not available on linux homebrew?
+
+compare_dir=$(mktemp -d)
+
+echo $compare_dir
+
+wget https://formulae.brew.sh/api/formula-linux.json -O $compare_dir/brew-linux.json
+
+formula=$(brew list --formula)
+
+while IFS= read -r line
+do 
+  if grep $line $compare_dir/brew-linux.json 2>&1 > /dev/null
+  then
+    echo "$line"
+  else
+    echo "$line -- is not available"
+  fi
+done <<< "$formula"
