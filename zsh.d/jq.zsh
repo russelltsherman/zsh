@@ -1,18 +1,16 @@
 
-if chk::command "jq"
+if chk::asdf::plugin 'jq'
 then
   ;
+
 else
   echo "jq not found. execute 'jq::install' to install it."
 
   jq::install() {
-    local version="1.6"
-    local platform
+    asdf plugin-add jq https://github.com/focused-labs/asdf-jq.git
 
-    chk::osx && platform="osx-amd64"
-    chk::linux && platform="linux64"
-
-    wget "https://github.com/stedolan/jq/releases/download/jq-$version/jq-$platform" -O ~/bin/jq
-    chmod +x ~/bin/jq
+    asdf install jq jq-1.6
+    asdf global jq $(asdf list jq)
   }
+
 fi
