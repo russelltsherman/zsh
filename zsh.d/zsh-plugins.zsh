@@ -10,9 +10,6 @@ then
   # https://github.com/russelltsherman/zsh-async
   antibody bundle russelltsherman/zsh-async branch:main
 
-  # https://github.com/russelltsherman/zsh-bd
-  # antibody bundle russelltsherman/zsh-bd branch:main
-
   # https://github.com/russelltsherman/zsh-clipboard
   # antibody bundle russelltsherman/zsh-clipboard branch:main
 
@@ -46,7 +43,6 @@ then
   # virtual multifactor token generation from the terminal
   # https://github.com/russelltsherman/zsh-mfa
   antibody bundle russelltsherman/zsh-mfa branch:main
-
   # antibody bundle russelltsherman/zsh-mkc branch:main
 
   # https://github.com/russelltsherman/zsh-pfetch
