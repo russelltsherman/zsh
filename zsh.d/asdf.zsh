@@ -10,6 +10,7 @@
 # https://github.com/asdf-vm/asdf-plugins
 
 export ASDF_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.asdf" || printf %s "${XDG_CONFIG_HOME}/asdf")"
+export ASDF_DATA_DIR="${HOME}/.asdf"
 
 if chk::dir $ASDF_DIR
 then

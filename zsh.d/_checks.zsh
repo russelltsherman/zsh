@@ -7,9 +7,17 @@ chk::app() {
   chk::linux && chk::command "$pkg" && return 0
 }
 
+# chk::asdf::plugin returns true if a given asdf plugin is installed
+# usage:
+#     chk::asdf::plugin "direnv" && echo::green "asdf plugin direnv is installed"
+chk::asdf::plugin() {
+  local plugin="${1}"
+  chk::command "asdf" && asdf plugin list | grep $plugin &> /dev/null
+}
+
 # chk::contains returns true if a given list contains a given value
 # usage:
-#     chk::contains "one two three" "three" && red "found it"
+#     chk::contains "one two three" "three" && echo::green "found it"
 chk::contains() {
   local list="$1"
   local item="$2"
