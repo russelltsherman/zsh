@@ -14,7 +14,7 @@ else
 
   direnv::install() {
     asdf plugin add direnv
-    asdf install direnv
+    asdf install direnv 2.20.0
     asdf global direnv $(asdf list direnv)
 
     cat > ${XDG_CONFIG_HOME}/direnv/direnvrc <<- EOM
