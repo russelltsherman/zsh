@@ -8,4 +8,5 @@ alias::new() {
 }
 
 alias::new 'll' 'ls -l'
-alias::new 'lla' 'ls -al'
+alias::new 'lla' 'ls -a'
+alias::new 'llal' 'ls -al'
