@@ -21,12 +21,12 @@ then
     aws-vault     # Amazon Web Services segment
     dir           # Current directory segment
     package       # Package version segment
-    nvm           # Node.js section segment
-    rvm           # Ruby segment
+    nodejs        # Node.js section segment
+    ruby          # Ruby segment
     golang        # Go segment
     docker        # Docker segment
-    tfenv         # Terraform workspace segment
-    tgenv         # Terragrunt workspace segment
+    terraform     # Terraform workspace segment
+    terragrunt    # Terragrunt workspace segment
     venv          # virtualenv segment
     kubecontext   # Kubectl context segment
     git           # Git segment

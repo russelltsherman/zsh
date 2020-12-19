@@ -30,11 +30,10 @@ then
     # If there are Go-specific files in current directory
     [[ -f go.mod || -f *.go ]] || return
 
-    local go_version
-    go_version=$(go version | awk '{ if ($3 ~ /^devel/) {print $3 ":" substr($4, 2)} else {print "v" substr($3, 3)} }')
+    local version=${$(asdf current golang | awk '{ print $2 }')}
 
     impromptu::segment "$IMPROMPTU_GOLANG_COLOR" \
-      "${IMPROMPTU_GOLANG_PREFIX}${IMPROMPTU_GOLANG_SYMBOL}${go_version}${IMPROMPTU_GOLANG_SUFFIX}"
+      "${IMPROMPTU_GOLANG_PREFIX}${IMPROMPTU_GOLANG_SYMBOL}${version}${IMPROMPTU_GOLANG_SUFFIX}"
   }
 
 else

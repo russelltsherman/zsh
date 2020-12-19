@@ -74,9 +74,6 @@ then
   # https://github.com/russelltsherman/tmux-xpanes
   antibody bundle russelltsherman/tmux-xpanes branch:main
 
-  # https://github.com/russelltsherman/zsh-venv
-  antibody bundle russelltsherman/zsh-venv branch:main
-
   # https://github.com/russelltsherman/zsh-vi-mode
   antibody bundle russelltsherman/zsh-vi-mode branch:main
 
