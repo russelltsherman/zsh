@@ -1,17 +1,16 @@
-if chk::command "minikube"
-then
 
+if chk::asdf::plugin 'minikube'
+then
+  ;
 else
   echo "minikube not found. execute 'minikube::install' to install it."
 
   minikube::install() {
-    chk::osx && pkg::install::brew "minikube"
-    
-    if chk::ubuntu
-    then
-      wget https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb -O ~/Download/minikube.deb
-      sudo apt install -y ~/Download/minikube.deb
-      rm ~/Download/minikube.deb
-    fi
+    asdf plugin-add minikube https://github.com/alvarobp/asdf-minikube.git
+
+    asdf install minikube v1.16.0
+    asdf global minikube $(asdf list minikube)
   }
+
 fi
+
