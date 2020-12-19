@@ -16,10 +16,6 @@ then
   # https://github.com/russelltsherman/zsh-clipboard
   # antibody bundle russelltsherman/zsh-clipboard branch:main
 
-  # activate direnv 
-  # https://github.com/russelltsherman/zsh-direnv
-  antibody bundle russelltsherman/zsh-direnv branch:main
-
   # https://github.com/russelltsherman/zsh-docker
   antibody bundle russelltsherman/zsh-docker branch:main
 
@@ -32,9 +28,6 @@ then
   # a common interface to extract any format compressed archive
   # https://github.com/russelltsherman/zsh-extract
   antibody bundle russelltsherman/zsh-extract branch:main
-
-  # https://github.com/russelltsherman/zsh-gcloud
-  # antibody bundle russelltsherman/zsh-gcloud branch:main
 
   # a collection of helper scripts for working with git
   # https://github.com/russelltsherman/zsh-git
@@ -74,18 +67,9 @@ then
   # https://github.com/russelltsherman/tmux-xpanes
   antibody bundle russelltsherman/tmux-xpanes branch:main
 
-  # https://github.com/russelltsherman/zsh-vi-mode
-  antibody bundle russelltsherman/zsh-vi-mode branch:main
-
-  # Automatic time tracking for commands in ZSH using wakatime.
-  # https://github.com/russelltsherman/zsh-wakatime
-  antibody bundle russelltsherman/zsh-wakatime branch:main
-
   # z - jump around
   # https://www.github.com/russelltsherman/zsh-z.git
   antibody bundle russelltsherman/zsh-z branch:main
-
-
 
   # Fish-like fast/unobtrusive autosuggestions for zsh.
   # https://github.com/zsh-users/zsh-autosuggestions
