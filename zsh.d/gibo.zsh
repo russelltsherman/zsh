@@ -5,5 +5,5 @@ then
 
 else
   git clone https://github.com/simonwhitaker/gibo.git $GIBO_DIR
-  ln -s $GIBO_DIR/gibo ~/bin
+  ln -s $GIBO_DIR/gibo ~/bin/gibo
 fi

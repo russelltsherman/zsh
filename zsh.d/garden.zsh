@@ -17,7 +17,7 @@ else
     tar -xvf garden-$version-$platform-amd64.tar.gz
     mv "$platform-amd64" "$GARDEN_DIR"
     rm garden-$version-$platform-amd64.tar.gz
-    ln -s $GARDEN_DIR/garden ~/bin
+    ln -s $GARDEN_DIR/garden ~/bin/garden
   }
 fi
 

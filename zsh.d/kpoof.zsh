@@ -5,6 +5,6 @@ then
 
 else
   git clone https://github.com/farmotive/kpoof $KPOOF_DIR
-  ln -s $KPOOF_DIR/kpoof ~/bin
+  ln -s $KPOOF_DIR/kpoof ~/bin/kpoof
 fi
 
