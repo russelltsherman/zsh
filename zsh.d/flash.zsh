@@ -1,7 +1,7 @@
 
 if chk::command "flash"
 then
-
+  ;
 else
   chk:osx && pkg::install::brew "pv"
   chk::debian && pkg::install::debian "curl hdparm pv unzip"

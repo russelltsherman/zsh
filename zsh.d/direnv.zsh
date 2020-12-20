@@ -1,5 +1,5 @@
 
-if chk::command "direnv"
+if chk::asdf::plugin "direnv"
 then
   # Hook direnv into your shell.
   eval "$(asdf exec direnv hook zsh)"
