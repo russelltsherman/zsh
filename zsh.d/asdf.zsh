@@ -16,6 +16,16 @@ if chk::dir $ASDF_DIR
 then
   source $ASDF_DIR/asdf.sh
 
+  asdf::update() {
+    asdf update
+
+    while IFS= read -r plugin
+    do 
+      asdf plugin update $plugin
+      asdf install $plugin latest
+    done <<< "$(asdf plugin list)"
+  }
+
 else
   git clone https://github.com/asdf-vm/asdf.git $ASDF_DIR --branch v0.8.0
 fi
