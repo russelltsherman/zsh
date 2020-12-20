@@ -20,9 +20,5 @@ then
   alias agas='ansible-galaxy search'
 
 else
-  echo "ansible not found. execute 'ansible::install' to install it."
-
-  ansible::install() {
-    pkg::install "ansible" "ppa:ansible/ansible"
-  }
+  pkg::install "ansible" "ppa:ansible/ansible"
 fi

@@ -17,9 +17,5 @@ then
   source $ASDF_DIR/asdf.sh
 
 else
-  echo "asdf not found. execute 'asdf::install' to install it."
-
-  asdf::install() {
-    git clone https://github.com/asdf-vm/asdf.git $ASDF_DIR --branch v0.8.0
-  }
+  git clone https://github.com/asdf-vm/asdf.git $ASDF_DIR --branch v0.8.0
 fi

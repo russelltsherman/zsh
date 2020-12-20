@@ -3,20 +3,16 @@ if chk::command "code"
 then
 
 else
-  echo "visual studio code not found. execute 'code::install' to install it."
+  chk::osx && pkg::install::brew::cask "visual-studio-code"
 
-  visual studio code::install() {
-    chk::osx && pkg::install::brew::cask "visual-studio-code"
+  if chk::debian
+  then
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 
-    if chk::debian
-    then
-      wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-      sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-      sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-
-      sudo apt install -y apt-transport-https
-      sudo apt update
-      sudo apt install -y code # or code-insiders
-    fi
-  }
+    sudo apt install -y apt-transport-https
+    sudo apt update
+    sudo apt install -y code # or code-insiders
+  fi
 fi

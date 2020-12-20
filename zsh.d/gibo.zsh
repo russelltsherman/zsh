@@ -4,10 +4,6 @@ if chk::command "gibo"
 then
 
 else
-  echo "gibo not found. execute 'gibo::install' to install it."
-
-  gibo::install() {
-    git clone https://github.com/simonwhitaker/gibo.git $GIBO_DIR
-    ln -s $GIBO_DIR/gibo ~/bin
-  }
+  git clone https://github.com/simonwhitaker/gibo.git $GIBO_DIR
+  ln -s $GIBO_DIR/gibo ~/bin
 fi

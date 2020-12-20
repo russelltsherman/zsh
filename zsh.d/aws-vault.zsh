@@ -200,10 +200,6 @@ then
   }
 
 else
-  echo "aws-vault not found. execute 'aws-vault::install' to install it."
-
-  aws-vault::install() {
-    go get github.com/99designs/aws-vault
-  }
+  chk::command "go" && go get github.com/99designs/aws-vault
 fi
 

@@ -29,14 +29,7 @@ then
   }
 
 else
-  echo "ruby not found. execute 'ruby::install' to install it."
-
-  ruby::install() {
-    asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-
-    asdf install ruby $(asdf list-all ruby | grep -v - | tail -1)
-    asdf global ruby $(asdf list ruby)
-  }
-
+  asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
+  asdf install ruby $(asdf list-all ruby | grep -v - | tail -1)
+  asdf global ruby $(asdf list ruby)
 fi
-

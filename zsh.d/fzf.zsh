@@ -12,12 +12,7 @@ then
   source "${FZF_DIR}/shell/key-bindings.zsh"
 
 else
-  echo "fzf not found. execute 'fzf::install' to install it."
-
-  fzf::install() {
-    asdf plugin-add fzf https://github.com/russelltsherman/asdf-fzf.git
-    asdf install fzf $(asdf list-all fzf | grep -v alpha | tail -f)
-    asdf global fzf $(asdf list fzf)
-  }
-
+  asdf plugin-add fzf https://github.com/russelltsherman/asdf-fzf.git
+  asdf install fzf $(asdf list-all fzf | grep -v alpha | tail -f)
+  asdf global fzf $(asdf list fzf)
 fi

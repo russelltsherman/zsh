@@ -211,44 +211,40 @@ then
     unset _aws_zsh_completer_path _brew_prefix
   fi
 
-else
-  echo "aws cli not found. execute 'aws::install' to install it."
+  # ------------------------------------------------------------------------------
+  # Impromptu Prompt Segment Function
+  # ------------------------------------------------------------------------------
+  impromptu::prompt::aws() {
+    IMPROMPTU_AWS_SHOW="true"
+    IMPROMPTU_AWS_PREFIX=""
+    IMPROMPTU_AWS_SUFFIX=" "
+    IMPROMPTU_AWS_SYMBOL="☁️ "
+    IMPROMPTU_AWS_COLOR="208"
 
-  aws::install() {
-    if chk::osx
-    then
-      curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-      sudo installer -pkg AWSCLIV2.pkg -target /
-    fi
+    # Check if the AWS-cli is installed
+    chk::command aws || return
 
-    if chk::linux
-    then
-      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      unzip awscliv2.zip
-      sudo ./aws/install
-    fi
+    [[ "$IMPROMPTU_AWS_SHOW" == "true" ]] || return
+
+    # Is the current profile not the default profile
+    [[ -z $AWS_PROFILE ]] || [[ "$AWS_PROFILE" == "default" ]] && return
+
+    # Show prompt segment
+    impromptu::segment "$IMPROMPTU_AWS_COLOR" \
+      "${IMPROMPTU_AWS_PREFIX}${IMPROMPTU_AWS_SYMBOL} $AWS_PROFILE${IMPROMPTU_AWS_SUFFIX}"
   }
+
+else
+  if chk::osx
+  then
+    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+    sudo installer -pkg AWSCLIV2.pkg -target /
+  fi
+
+  if chk::linux
+  then
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+  fi
 fi
-
-# ------------------------------------------------------------------------------
-# Impromptu Prompt Segment Function
-# ------------------------------------------------------------------------------
-impromptu::prompt::aws() {
-  IMPROMPTU_AWS_SHOW="true"
-  IMPROMPTU_AWS_PREFIX=""
-  IMPROMPTU_AWS_SUFFIX=" "
-  IMPROMPTU_AWS_SYMBOL="☁️ "
-  IMPROMPTU_AWS_COLOR="208"
-
-  # Check if the AWS-cli is installed
-  chk::command aws || return
-
-  [[ "$IMPROMPTU_AWS_SHOW" == "true" ]] || return
-
-  # Is the current profile not the default profile
-  [[ -z $AWS_PROFILE ]] || [[ "$AWS_PROFILE" == "default" ]] && return
-
-  # Show prompt segment
-  impromptu::segment "$IMPROMPTU_AWS_COLOR" \
-    "${IMPROMPTU_AWS_PREFIX}${IMPROMPTU_AWS_SYMBOL} $AWS_PROFILE${IMPROMPTU_AWS_SUFFIX}"
-}

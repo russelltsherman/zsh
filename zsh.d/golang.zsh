@@ -37,13 +37,8 @@ then
   }
 
 else
-  echo "golang not found. execute 'golang::install' to install it."
+  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 
-  golang::install() {
-    asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-
-    asdf install golang $(asdf list-all golang | grep -v beta | grep -v rc | tail -1)
-    asdf global golang $(asdf list golang)
-  }
-
+  asdf install golang $(asdf list-all golang | grep -v beta | grep -v rc | tail -1)
+  asdf global golang $(asdf list golang)
 fi

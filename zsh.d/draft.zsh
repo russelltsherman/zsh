@@ -1,20 +1,8 @@
-if chk::command "draft"
+if chk::asdf::plugin 'draft'
 then
-
+  ;
 else
-  echo "draft not found. execute 'draft::install' to install it."
-
-  draft::install() {
-    local version="0.16.0"
-    local platform
-
-    chk::osx && platform="darwin"
-    chk::linux && platform="linux"
-
-    wget https://azuredraft.blob.core.windows.net/draft/draft-v${version}-${platform}-amd64.tar.gz -O draft.tar.gz
-    tar -xvf draft.tar.gz
-    mv ${platform}-amd64/draft ~/bin
-    rm -rf ${platform}-amd64
-    rm draft.tar.gz
-  }
+  asdf plugin-add draft https://github.com/kristoflemmens/asdf-draft.git
+  asdf install draft $(asdf list-all draft | grep -v rc | tail -1)
+  asdf global draft $(asdf list draft)
 fi
