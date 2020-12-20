@@ -200,6 +200,6 @@ then
   }
 
 else
-  chk::command "go" && go get github.com/99designs/aws-vault
+  pkg::install::brew "aws-vault"
 fi
 
