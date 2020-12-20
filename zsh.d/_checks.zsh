@@ -4,7 +4,7 @@
 chk::app() {
   local app="${1}"
   chk::osx && mdfind "kMDItemKind == 'Application'" | grep -i "${app//-/ }" &> /dev/null && return 0
-  chk::linux && chk::command "$pkg" && return 0
+  chk::linux && chk::command "$app" && return 0
 }
 
 # chk::asdf::plugin returns true if a given asdf plugin is installed
