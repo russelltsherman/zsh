@@ -1,7 +1,7 @@
 
 if chk::asdf::plugin 'fzf'
 then
-  fzf_version=$(asdf list fzf | tail -1 | xargs)
+  fzf_version=$(asdf current fzf | awk '{print $2}')
   FZF_DIR="$ASDF_DATA_DIR/installs/fzf/${fzf_version}/"
 
   # Setup fzf
@@ -15,9 +15,8 @@ else
   echo "fzf not found. execute 'fzf::install' to install it."
 
   fzf::install() {
-    asdf plugin-add fzf https://github.com/kompiro/asdf-fzf.git
-
-    asdf install fzf 0.24.4
+    asdf plugin-add fzf https://github.com/russelltsherman/asdf-fzf.git
+    asdf install fzf $(asdf list-all fzf | grep -v alpha | tail -f)
     asdf global fzf $(asdf list fzf)
   }
 

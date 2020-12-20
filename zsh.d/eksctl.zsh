@@ -7,9 +7,8 @@ else
   echo "eksctl not found. execute 'eksctl::install' to install it."
 
   eksctl::install() {
-    asdf plugin-add eksctl https://github.com/elementalvoid/asdf-eksctl.git
-
-    asdf install eksctl 0.34.0
+    asdf plugin-add eksctl https://github.com/russelltsherman/asdf-eksctl.git
+    asdf install eksctl $(asdf list eksctl | grep -v rc | tail -1)
     asdf global eksctl $(asdf list eksctl)
   }
 fi

@@ -42,7 +42,7 @@ else
   golang::install() {
     asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 
-    asdf install golang 1.15.6
+    asdf install golang $(asdf list-all golang | grep -v beta | grep -v rc | tail -1)
     asdf global golang $(asdf list golang)
   }
 

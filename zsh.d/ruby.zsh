@@ -34,7 +34,7 @@ else
   ruby::install() {
     asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
 
-    asdf install ruby 2.7.2
+    asdf install ruby $(asdf list-all ruby | grep -v - | tail -1)
     asdf global ruby $(asdf list ruby)
   }
 

@@ -6,9 +6,9 @@ else
   echo "adr-tools not found. execute 'adr-tools::install' to install it."
 
   adr-tools::install() {
-    asdf plugin-add adr-tools https://gitlab.com/td7x/asdf/adr-tools.git
+    asdf plugin-add adr-tools https://github.com/russelltsherman/asdf-adr-tools.git
 
-    asdf install adr-tools 3.0.0
+    asdf install adr-tools $(asdf list-all adr-tools | tail -1)
     asdf global adr-tools $(asdf list adr-tools)
   }
 fi

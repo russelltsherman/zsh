@@ -13,8 +13,8 @@ else
   echo "direnv not found. execute 'direnv::install' to install it."
 
   direnv::install() {
-    asdf plugin add direnv
-    asdf install direnv 2.20.0
+    asdf plugin add direnv https://github.com/russelltsherman/asdf-direnv
+    asdf install direnv $(asdf list-all direnv | tail -1)
     asdf global direnv $(asdf list direnv)
 
     cat > ${XDG_CONFIG_HOME}/direnv/direnvrc <<- EOM
