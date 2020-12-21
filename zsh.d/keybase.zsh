@@ -1,6 +1,6 @@
 if chk::command "keybase"
 then
-
+  ;
 else
   chk::osx && pkg::install::brew::cask "keybase"
   

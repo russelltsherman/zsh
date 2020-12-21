@@ -2,16 +2,13 @@
 if chk::asdf::plugin 'golang'
 then
 
-  GOBIN="${HOME}/bin"
-  GOPATH="$HOME"
-  GOROOT="$(go env GOROOT)"
-  PATH="${PATH}:${GOBIN}"
-  alias gotour="\${GOPATH}/bin/gotour"
-  export GOBIN
-  export GOPATH
-  export PATH
-  export GOROOT
+  export GOBIN="${HOME}/bin"
+  export GOPATH="$HOME"
+  export GOROOT="$(go env GOROOT)"
+  export PATH="${PATH}:${GOBIN}"
   export GO111MODULE=on
+
+  alias gotour="\${GOPATH}/bin/gotour"
 
   # ------------------------------------------------------------------------------
   # Impromptu Prompt Segment Function

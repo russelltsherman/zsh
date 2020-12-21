@@ -1,7 +1,7 @@
 
 if chk::command "code"
 then
-
+  ;
 else
   chk::osx && pkg::install::brew::cask "visual-studio-code"
 

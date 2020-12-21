@@ -2,7 +2,7 @@ export GARDEN_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.garden"
 
 if chk::dir "$GARDEN_DIR"
 then
-
+  ;
 else
   local version="0.12.11"
   local platform

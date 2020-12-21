@@ -1,7 +1,7 @@
 
 if chk::app "dropbox"
 then
-
+  ;
 else
   chk::osx && pkg::install::brew::cask "dropbox"
   
