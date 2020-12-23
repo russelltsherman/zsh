@@ -6,7 +6,5 @@ then
   alias vi='vi -c "let g:tty='\''$(tty)'\''"'
 
 else
-  asdf plugin-add neovim https://github.com/richin13/asdf-neovim.git
-  asdf install neovim $(asdf list-all neovim | tail -1)
-  asdf global neovim $(asdf list neovim)
+  pkg::install::asdf neovim https://github.com/richin13/asdf-neovim.git
 fi

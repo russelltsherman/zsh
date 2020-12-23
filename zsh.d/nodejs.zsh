@@ -32,7 +32,7 @@ else
 
   chk::debian && pkg::install::debian 'curl dirmngr gpg'
 
-  asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  pkg::install::asdf nodejs https://github.com/asdf-vm/asdf-nodejs.git
   bash -c '${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring'
   bash -c '${ASDF_DATA_DIR}/plugins/nodejs/bin/import-previous-release-team-keyring'
 

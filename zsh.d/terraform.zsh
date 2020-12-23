@@ -26,11 +26,6 @@ then
   }
 
 else
-  asdf plugin-add terraform https://github.com/Banno/asdf-hashicorp.git
-  asdf install terraform 0.12.29
-  asdf install terraform 0.13.5
-  asdf install terraform 0.14.3
-  asdf install terraform $(asdf list-all terraform | grep -v alpha | grep -v beta | grep -v rc | tail -1)
-  asdf global terraform $(asdf list terraform)
+  pkg::install::asdf terraform https://github.com/Banno/asdf-hashicorp.git
 fi
 

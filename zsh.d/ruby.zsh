@@ -29,7 +29,5 @@ then
   }
 
 else
-  asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
-  asdf install ruby $(asdf list-all ruby | grep -v - | tail -1)
-  asdf global ruby $(asdf list ruby)
+  pkg::install::asdf ruby https://github.com/asdf-vm/asdf-ruby.git
 fi

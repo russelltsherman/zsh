@@ -12,7 +12,5 @@ then
   source "${FZF_DIR}/shell/key-bindings.zsh"
 
 else
-  asdf plugin-add fzf https://github.com/russelltsherman/asdf-fzf.git
-  asdf install fzf $(asdf list-all fzf | grep -v alpha | tail -f)
-  asdf global fzf $(asdf list fzf)
+  pkg::install::asdf fzf https://github.com/russelltsherman/asdf-fzf.git
 fi

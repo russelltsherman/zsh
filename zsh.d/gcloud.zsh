@@ -51,7 +51,5 @@ then
   source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/path.zsh.inc"
 
 else
-  asdf plugin-add gcloud https://github.com/jthegedus/asdf-gcloud.git
-  asdf install gcloud $(asdf list-all gcloud | tail -1)
-  asdf global gcloud $(asdf list gcloud)
+  pkg::install::asdf gcloud https://github.com/jthegedus/asdf-gcloud.git
 fi

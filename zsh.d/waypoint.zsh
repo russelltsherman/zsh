@@ -3,7 +3,5 @@ if chk::asdf::plugin 'waypoint'
 then
   ;
 else
-  asdf plugin-add waypoint https://github.com/Banno/asdf-hashicorp.git
-  asdf install waypoint $(asdf list-all waypoint | tail -1)
-  asdf global waypoint $(asdf list waypoint)
+  pkg::install::asdf waypoint https://github.com/Banno/asdf-hashicorp.git
 fi

@@ -34,7 +34,5 @@ then
   }
 
 else
-  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-  asdf install golang $(asdf list-all golang | grep -v beta | grep -v rc | tail -1)
-  asdf global golang $(asdf list golang)
+  pkg::install::asdf golang https://github.com/kennyp/asdf-golang.git
 fi
