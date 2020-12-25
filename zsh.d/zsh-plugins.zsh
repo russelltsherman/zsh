@@ -84,6 +84,8 @@ then
 
   # https://www.github.com/zsh-users/zaw.git
   antibody bundle zsh-users/zaw
+
+  antibody bundle sobolevn/wakatime-zsh-plugin
 else 
   echo::red "antibody command not installed skipping zsh plugin load"
 fi
