@@ -16,7 +16,7 @@ else
 
   cat > ${XDG_CONFIG_HOME}/direnv/direnvrc <<- EOM
 # makes the use asdf feature available
-source "$(asdf direnv hook asdf)"
+source "\$(asdf direnv hook asdf)"
 
 # Uncomment the following line to make direnv silent by default.
 # export DIRENV_LOG_FORMAT=""
