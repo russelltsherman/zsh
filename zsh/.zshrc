@@ -69,7 +69,7 @@ then
   then
     compinit -d ${ZDOTCACHEDIR}/.zcompdump
   else
-    compinit -C 
+    compinit -i -C 
   fi
 else # [ "$(uname)" = "Linux" ]
   # linux uses GNU style stat
@@ -77,7 +77,7 @@ else # [ "$(uname)" = "Linux" ]
   then
     compinit -d ${ZDOTCACHEDIR}/.zcompdump
   else
-    compinit -C 
+    compinit -i -C 
   fi
 fi 
 
