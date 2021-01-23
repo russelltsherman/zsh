@@ -8,7 +8,7 @@ On a fresh mac you won't have git or other required dependencies installed..
 open a Terminal and run...
 
 ```sh
-curl https://raw.githubusercontent.com/russelltsherman/zsh/master/bin/bootstrap | bash
+curl https://raw.githubusercontent.com/russelltsherman/zsh/main/bin/bootstrap | bash
 ```
 
 ## Usage
