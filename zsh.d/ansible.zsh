@@ -18,7 +18,4 @@ then
   alias agalog='ansible-galaxy login'
   alias agar='ansible-galaxy remove'
   alias agas='ansible-galaxy search'
-
-else
-  pkg::install "ansible" "ppa:ansible/ansible"
 fi

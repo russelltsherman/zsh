@@ -1,7 +1,6 @@
 
 if chk::asdf::plugin 'golang'
 then
-
   export GOBIN="${HOME}/bin"
   export GOPATH="$HOME"
   export GOROOT="$(go env GOROOT)"
@@ -32,7 +31,4 @@ then
     impromptu::segment "$IMPROMPTU_GOLANG_COLOR" \
       "${IMPROMPTU_GOLANG_PREFIX}${IMPROMPTU_GOLANG_SYMBOL}${version}${IMPROMPTU_GOLANG_SUFFIX}"
   }
-
-else
-  pkg::install::asdf golang https://github.com/kennyp/asdf-golang.git
 fi

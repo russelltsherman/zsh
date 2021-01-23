@@ -49,7 +49,4 @@ then
   gcloud_version=$(asdf list gcloud | tail -1 | xargs)
   source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/completion.zsh.inc"
   source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/path.zsh.inc"
-
-else
-  pkg::install::asdf gcloud https://github.com/jthegedus/asdf-gcloud.git
 fi

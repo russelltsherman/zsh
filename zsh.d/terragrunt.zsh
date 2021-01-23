@@ -1,7 +1,6 @@
 
 if chk::asdf::plugin 'terragrunt'
 then
-
   # ------------------------------------------------------------------------------
   # Impromptu Prompt Segment Function
   # ------------------------------------------------------------------------------
@@ -26,8 +25,4 @@ then
     impromptu::segment "$IMPROMPTU_TGENV_COLOR" \
       "${IMPROMPTU_TGENV_PREFIX}${IMPROMPTU_TGENV_SYMBOL}${version}${IMPROMPTU_TGENV_SUFFIX}"
   }
-
-else
-  pkg::install::asdf terragrunt https://github.com/lotia/asdf-terragrunt.git
 fi
-

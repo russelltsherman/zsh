@@ -10,7 +10,4 @@ then
   [[ $- == *i* ]] && source "${FZF_DIR}/shell/completion.zsh" 2> /dev/null
   # Key bindings
   source "${FZF_DIR}/shell/key-bindings.zsh"
-
-else
-  pkg::install::asdf fzf https://github.com/russelltsherman/asdf-fzf.git
 fi

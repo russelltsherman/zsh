@@ -25,7 +25,4 @@ then
       asdf install $plugin latest
     done <<< "$(asdf plugin list)"
   }
-
-else
-  git clone https://github.com/asdf-vm/asdf.git $ASDF_DIR --branch v0.8.0
 fi

@@ -234,20 +234,4 @@ then
       "${IMPROMPTU_AWS_PREFIX}${IMPROMPTU_AWS_SYMBOL} $AWS_PROFILE${IMPROMPTU_AWS_SUFFIX}"
   }
 
-else
-  if chk::osx
-  then
-    curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-    sudo installer -pkg AWSCLIV2.pkg -target /
-    rm AWSCLIV2.pkg
-  fi
-
-  if chk::linux
-  then
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    unzip awscliv2.zip
-    sudo ./aws/install
-    rm awscliv2.zip
-    rm -rf ./aws
-  fi
 fi

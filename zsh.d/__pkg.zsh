@@ -7,8 +7,8 @@ pkg::install::asdf() {
   local repo="${2}"
 
   asdf plugin-add $pkg $repo
-  asdf install $pkg $(asdf list-all $pkg | grep -v a | grep -v e | grep -v c | grep -v y | tail -1)
-  asdf global $pkg $(asdf list $pkg)
+  asdf install $pkg $(asdf list-all $pkg | grep -v a | grep -v e | grep -v c | grep -v y | tail -1 | xargs)
+  asdf global $pkg $(asdf list $pkg | tail -1 | xargs)
 }
 
 # install package using homebrew

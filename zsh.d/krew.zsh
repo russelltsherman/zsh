@@ -5,20 +5,4 @@
 if chk::dir "${HOME}/.krew/bin"
 then
   export PATH="${PATH}:${HOME}/.krew/bin"
-else
-  if chk::command "kubectl"
-  then
-    wget "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz"
-    tar -zxvf krew.tar.gz
-
-    KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_$(uname -m | sed -e 's/x86_64/amd64/' -e 's/arm.*$/arm/')"
-    "$KREW" install krew
-    rm -rf krew*
-
-    kubectl krew install ctx # kubectl ctx
-    kubectl krew install ns # kubectl ns
-
-    # look for more useful plugins
-    # https://krew.sigs.k8s.io/plugins/
-  fi
 fi
