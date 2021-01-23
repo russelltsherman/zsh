@@ -53,7 +53,7 @@ fi
 
 echo ""
 echo "#######################################################################"
-echo "initialize build harness"
+echo "initialize baseline build harness"
 echo "#######################################################################"
 make -C "${GIT_SRC}/github.com/${GIT_ORG}/${GIT_PROJECT}" init
 

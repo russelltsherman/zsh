@@ -3,7 +3,7 @@
 current_dir = $(shell pwd)
 
 ## load dependencies for this project
-bootstrap: init
+bootstrap:
 	make brew
 	# symlink local zsh directory to $ZDOTDIR
 	-ln -s $(current_dir)/zsh ${HOME}/.zsh
