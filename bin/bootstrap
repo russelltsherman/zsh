@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# allow for automated install of xcode cli tools and git clone of baseline repo
+# allow for automated install of xcode cli tools and git clone repo
 
 set -o errtrace
 set -o functrace
@@ -53,7 +53,7 @@ fi
 
 echo ""
 echo "#######################################################################"
-echo "initialize baseline build harness"
+echo "initialize build harness"
 echo "#######################################################################"
 make -C "${GIT_SRC}/github.com/${GIT_ORG}/${GIT_PROJECT}" init
 
