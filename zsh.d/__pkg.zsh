@@ -50,7 +50,7 @@ pkg::install() {
     pkg::install::brew "$pkg"
   fi
   
-  if chk::ubuntu || chk::debian
+  if chk::linux
   then
     pkg::install::debian "$pkg" "$repo"
   fi
@@ -80,7 +80,7 @@ pkg::remove() {
     pkg::remove::brew "$pkg"
   fi
   
-  if chk::ubuntu || chk::debian
+  if chk::linux
   then
     pkg::remove::debian "$pkg"
   fi

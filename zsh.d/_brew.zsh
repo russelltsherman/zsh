@@ -1,5 +1,5 @@
 
-if chk::ubuntu || chk::debian
+if chk::linux
 then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi
