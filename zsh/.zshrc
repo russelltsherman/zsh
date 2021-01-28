@@ -95,8 +95,11 @@ PROMPT='%F{cyan}%1 %/ %f %# '
 # load local configuration stored in $ZDOTDEEDIR
 if [ -d $ZDOTDEEDIR ]
 then
+  ORIG_COLLATE=$LC_COLLATE
+  LC_COLLATE=C
   for i in $ZDOTDEEDIR/*.zsh
   do
     source $i
   done
+  LC_COLLATE=$ORIG_COLLATE
 fi
