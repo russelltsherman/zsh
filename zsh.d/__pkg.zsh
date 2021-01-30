@@ -35,7 +35,7 @@ pkg::install::debian() {
   local repo="${2}"
 
   chk::empty "$repo" || sudo apt-add-repository --yes --update "$repo"
-  sudo apt install -y "$pkg"
+  sudo apt-get install -y "$pkg"
 }
 
 # install package
@@ -67,7 +67,7 @@ pkg::remove::brew() {
 #   pkg::remove::debian packagename
 pkg::remove::debian() {
   local pkg="${1}"
-  sudo apt remove -y "$pkg"
+  sudo apt-get remove -y "$pkg"
 }
 
 # USAGE:
