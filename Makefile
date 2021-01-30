@@ -11,4 +11,10 @@ bootstrap:
 	-ln -s $(current_dir)/zsh.d ${HOME}/.zsh.d
 	# symlink .zshenv to $HOME so that system will source it automatically
 	-ln -s $(current_dir)/zsh/.zshenv ${HOME}/.zshenv
+	make shell
 _PHONY: bootstrap
+
+## set user shell to the brew installed version of zsh
+shell:
+	sudo chsh --shell /usr/local/bin/zsh $(whoami)
+_PHONY: shell
