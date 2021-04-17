@@ -47,6 +47,9 @@
 if chk::asdf::plugin 'gcloud'
 then
   gcloud_version=$(asdf list gcloud | tail -1 | xargs)
-  source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/completion.zsh.inc"
-  source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/path.zsh.inc"
+  if [ "$gloud_version" != "" ]
+  then
+    source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/completion.zsh.inc"
+    source "$ASDF_DATA_DIR/installs/gcloud/${gcloud_version}/path.zsh.inc"
+  fi
 fi
