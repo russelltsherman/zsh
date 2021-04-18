@@ -16,5 +16,5 @@ _PHONY: bootstrap
 
 ## set user shell to the brew installed version of zsh
 shell:
-	sudo chsh --shell /usr/local/bin/zsh $(whoami)
+	USER=$(shell whoami) sudo chsh -s /usr/local/bin/zsh $$USER
 _PHONY: shell
