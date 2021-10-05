@@ -6,7 +6,7 @@
 # Impromptu Prompt Segment Function
 # ------------------------------------------------------------------------------
 impromptu::prompt::battery() {
-  IMPROMPTU_BATTERY_SHOW="always"
+  IMPROMPTU_BATTERY_SHOW="false"
   IMPROMPTU_BATTERY_PREFIX=" "
   IMPROMPTU_BATTERY_SUFFIX=" "
   IMPROMPTU_BATTERY_SYMBOL_CHARGING="⇡"
