@@ -1,5 +1,8 @@
 # wakatime for zsh
 
+PYTHON_VERSION=$(python --version | tail -1 | cut -d ' ' -f 2)
+WAKATIME=$HOME/.asdf/installs/python/$PYTHON_VERSION/bin/wakatime
+
 # hook function to send wakatime a tick
 hasgit=`type "git">/dev/null 2>&1`$?
 
@@ -9,7 +12,7 @@ send_wakatime_heartbeat() {
 
   if [ "$entity" ]; then
     (
-      wakatime --write \
+      $WAKATIME --write \
         --plugin "zsh-wakatime/0.0.1" \
         --entity-type app \
         --entity "$entity" > /dev/null 2>&1 &
