@@ -7,3 +7,10 @@
 # and there must not be any configuration after this to ensure that anything set here remains set as the user intended.
 
 ## Load user's custom overrides
+
+# add python bin dir to path
+PYTHON_VERSION=$(python --version | tail -1 | cut -d ' ' -f 2)
+export PATH="${PATH}:$HOME/.asdf/installs/python/$PYTHON_VERSION/bin"
+
+# add user bin dir to path
+export PATH="${PATH}:${HOME}/bin"
