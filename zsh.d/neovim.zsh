@@ -1,5 +1,5 @@
 
-if chk::asdf::plugin 'neovim'
+if chk::command "vi"
 then
   # set global tty value in vim on launch
   # facilitates OSC 52 Yanks vi plugin

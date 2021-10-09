@@ -1,5 +1,5 @@
 
-if chk::asdf::plugin 'terragrunt'
+if chk::command "terragrunt"
 then
   # ------------------------------------------------------------------------------
   # Impromptu Prompt Segment Function

@@ -1,5 +1,5 @@
 
-if chk::asdf::plugin 'terraform'
+if chk::command "terraform"
 then
   # ------------------------------------------------------------------------------
   # Impromptu Prompt Segment Function

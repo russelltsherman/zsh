@@ -1,5 +1,5 @@
 
-if chk::asdf::plugin 'nodejs'
+if chk::command "node"
 then
   # ------------------------------------------------------------------------------
   # Impromptu Prompt Segment Function
