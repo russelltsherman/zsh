@@ -6,3 +6,7 @@ Brewfile.lock*
 
 # ignore local customizations
 # zsh.d/*
+
+# ignore local cache
+.zsh_sessions
+.zcompdump
