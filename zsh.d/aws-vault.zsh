@@ -8,12 +8,45 @@ then
   AWS_VAULT_PL_BROWSER=${AWS_VAULT_PL_BROWSER:-''}
   AWS_VAULT_PL_MFA=${AWS_VAULT_PL_MFA:-''}
 
+  AWS_SESSION_TOKEN_TTL=${AWS_SESSION_TOKEN_TTL:-1h}
+  # Expiration time for the GetSessionToken credentials.
+  AWS_CHAINED_SESSION_TOKEN_TTL=${AWS_CHAINED_SESSION_TOKEN_TTL:-1h}
+  # Expiration time for the GetSessionToken credentials when chaining profiles.
+  AWS_ASSUME_ROLE_TTL=${AWS_ASSUME_ROLE_TTL:-1h}
+  # Expiration time for the AssumeRole credentials.
+  AWS_FEDERATION_TOKEN_TTL=${AWS_FEDERATION_TOKEN_TTL:-1h}
+  # Expiration time for the GetFederationToken credentials.
+  AWS_MIN_TTL=${AWS_MIN_TTL:-5m}
+  # The minimum expiration time allowed for a credential.
+
   export AWS_VAULT_BACKEND=${AWS_VAULT_BACKEND:-file}
   #--------------------------------------------------------------------#
   # Aliases                                                            #
   #--------------------------------------------------------------------#
   alias av='aws-vault'
   alias avs='aws-vault --server'
+
+  # create an aws authenticated session
+  awslogin() {
+    echo "awslogin called from $(pwd)"
+
+    # 
+    local profile="${1:-$AWS_PROFILE}"
+
+    if [ -z $profile ]
+    then
+      echo ""
+      echo "select aws profile using command asp"
+      echo ""
+      aws_profiles
+      return 1
+    fi
+
+    # if profile not specified create fuzzy finder selector
+
+    asp $profile
+    aws-vault exec $profile --mfa-token=$(mfa aws) -- zsh -l 
+  }
 
   #--------------------------------------------------------------------#
   # Convenience Functions                                              #
@@ -200,4 +233,3 @@ then
   }
 
 fi
-
