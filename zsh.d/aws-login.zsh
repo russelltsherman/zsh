@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-AWS_MFA_PROFILE="aws"
+AWS_MFA_PROFILE="${AWS_MFA_PROFILE:-aws}"
 
 # function for launching a shell with aws vault authentication
 # Usage: awsshell [aws-profile] [mfa-profile]
