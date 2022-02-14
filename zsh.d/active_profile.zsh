@@ -31,7 +31,13 @@ activate(){
   echo "$profile" > "$file"
   export AWS_MFA_PROFILE
 
-  # refresh files in ~/.ssh
+  # refresh aws configuration
+  if test -d ${HOME}/.aws/${profile}; then
+    find ~/.aws -type f -maxdepth 1 -exec rm -rf {} \;
+    cp ${HOME}/.aws/${profile}/*  ${HOME}/.aws
+  fi
+
+  # refresh ssh configuration
   if test -d ${HOME}/.ssh/${profile}; then
     find ~/.ssh -type f -maxdepth 1 -exec rm -rf {} \;
     cp ${HOME}/.ssh/${profile}/*  ${HOME}/.ssh
@@ -45,21 +51,12 @@ activate(){
     # ssh-add -l
   fi
 
-  # refresh files in ~/.config/mfa
+  # refresh mfa configuration
   if test -d ${HOME}/.config/mfa/${profile}; then
     find ${HOME}/.config/mfa -type f -maxdepth 1 -exec rm -rf {} \;
     cp ${HOME}/.config/mfa/${profile}/*  ${HOME}/.config/mfa
   fi
-
 }
-
-# systems
-# ssh keys
-# aws profile
-# kubeconfig
-# github personal access token
-# gitlab personal access token
-# mfa configuration
 
 if [ -f "$file" ]
 then
@@ -69,6 +66,3 @@ elif [ -z "$ACTIVE_PROFILE" ]
 then
   :
 fi
-
-# it would be ideal if we could configure unique ssh config for each profile
-# we could create sub folders for each profile under ~/.ssh and delete and copy files into ~/.ssh when changing profiles
