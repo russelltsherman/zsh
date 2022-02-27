@@ -4,41 +4,47 @@
 
 file="${XDG_CONFIG_HOME}/active/profile"
 
-activate(){
+be(){
+  
+  if [[ -f "$file" ]]
+    ACTIVE_PROFILE="$(cat "$file")"
+  then
+  fi
+
   profile=${1:-$ACTIVE_PROFILE}
+
   case $profile in
-    8f|8fold)
-      profile="blockhenge"
-      ;;
-    bhco|blockhenge)
+    bh|ef|blockhenge)
       profile="blockhenge"
       ;;
     fb|finbotsdev)
       profile="finbotsdev"
       ;;
-    ob|opsbot)
+    ob|opsbots)
       profile="opsbots"
       ;;
-    rs|russell)
+    rs|russelltsherman)
       profile="russelltsherman"
       ;;
     *)
-      profile="N/A"
+      profile="none"
       ;;
   esac
 
-  echo "Active profile: $profile"
   echo "$profile" > "$file"
-  export AWS_MFA_PROFILE
+  ACTIVE_PROFILE="$profile"
+  export ACTIVE_PROFILE
 
   # refresh aws configuration
-  if test -d ${HOME}/.aws/${profile}; then
+  if [[  -d ${HOME}/.aws/${profile} ]]
+  then
     find ~/.aws -type f -maxdepth 1 -exec rm -rf {} \;
     cp ${HOME}/.aws/${profile}/*  ${HOME}/.aws
   fi
 
   # refresh ssh configuration
-  if test -d ${HOME}/.ssh/${profile}; then
+  if [[ -d ${HOME}/.ssh/${profile} ]] 
+  then
     find ~/.ssh -type f -maxdepth 1 -exec rm -rf {} \;
     cp ${HOME}/.ssh/${profile}/*  ${HOME}/.ssh
     # refresh ssh-agent keys
@@ -52,17 +58,42 @@ activate(){
   fi
 
   # refresh mfa configuration
-  if test -d ${HOME}/.config/mfa/${profile}; then
+  if [[ -d ${HOME}/.config/mfa/${profile} ]] 
+  then
     find ${HOME}/.config/mfa -type f -maxdepth 1 -exec rm -rf {} \;
-    cp ${HOME}/.config/mfa/${profile}/*  ${HOME}/.config/mfa
+    key_count=$(ls ${HOME}/.config/mfa/${profile} | wc -l)
+    if [[ ! $key_count -eq 0 ]]
+    then
+      cp ${HOME}/.config/mfa/${profile}/*  ${HOME}/.config/mfa
+    fi
+  fi
+
+  # if function called with argument reload shell
+  if [[ ! $# -eq 0 ]]
+  then
+    zsh::reload
   fi
 }
 
-if [ -f "$file" ]
-then
-  ACTIVE_PROFILE="$(cat "$file")"
-  activate
-elif [ -z "$ACTIVE_PROFILE" ]
-then
-  :
-fi
+# call be function without argument to load saved active profile
+be 
+
+# ------------------------------------------------------------------------------
+# Impromptu Prompt Segment Function
+# ------------------------------------------------------------------------------
+impromptu::prompt::active_profile() {
+  IMPROMPTU_AP_SHOW="true"
+  IMPROMPTU_AP_PREFIX=""
+  IMPROMPTU_AP_SUFFIX=" "
+  IMPROMPTU_AP_SYMBOL="☁️ "
+  IMPROMPTU_AP_COLOR="208"
+
+  [[ "$IMPROMPTU_AP_SHOW" == "true" ]] || return
+
+  # Is the current profile not the default profile
+  [[ -z $ACTIVE_PROFILE ]] || [[ "$ACTIVE_PROFILE" == "N/A" ]] && return
+
+  # Show prompt segment
+  impromptu::segment "$IMPROMPTU_AP_COLOR" \
+    "${IMPROMPTU_AP_PREFIX}${IMPROMPTU_AP_SYMBOL} $ACTIVE_PROFILE ${IMPROMPTU_AP_SUFFIX}"
+}

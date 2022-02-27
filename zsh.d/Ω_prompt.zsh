@@ -17,6 +17,7 @@ then
     vi-mode       # Vi-mode indicator
     user          # Username segment
     host          # Hostname segment
+    active_profile 
     aws           # Amazon Web Services segment
     aws-vault     # Amazon Web Services segment
     dir           # Current directory segment
