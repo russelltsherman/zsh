@@ -10,3 +10,7 @@ alias::new() {
 alias::new 'll' 'ls -l'
 alias::new 'lla' 'ls -a'
 alias::new 'llal' 'ls -al'
+
+alias::new 'bin' 'code ~/bin'
+alias::new 'dotfiles' 'cd ~/src/github.com/russelltsherman && code dotfiles tmux vim vscode zsh && cd $OLDPWD'
+alias::new 'wiki' 'cd ~/src/github.com/russelltsherman && code vimwiki && cd $OLDPWD'
