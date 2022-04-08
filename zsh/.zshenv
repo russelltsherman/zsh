@@ -15,6 +15,9 @@
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config"}"
 [ -d "$XDG_CONFIG_HOME" ] || mkdir -p "$XDG_CONFIG_HOME" # ensure $XDG_CONFIG_HOME dir exists
 
+export XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.data"}"
+[ -d "$XDG_DATA_HOME" ] || mkdir -p "$XDG_DATA_HOME" # ensure $XDG_DATA_HOME dir exists
+
 # our .zshenv is symlinked to $HOME so that the zshell will load it automatically
 # with this var we are telling zshell to look to ${HOME}/.zsh/ for the remaining zshell startup files
 export ZDOTDIR="${ZDOTDIR:-"${HOME}/.zsh"}"
