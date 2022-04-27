@@ -2,6 +2,12 @@
 # if the active profile file exists we will set the ACTIVE_PROFILE env var to it's contents
 # this will allow us to scope systems to use the correct configuration for the given profile
 
+if [[ ! -d "${XDG_CONFIG_HOME}/active" ]]
+  mkdir -p "${XDG_CONFIG_HOME}/active"
+then
+fi
+
+
 file="${XDG_CONFIG_HOME}/active/profile"
 
 be(){
@@ -22,6 +28,9 @@ be(){
       ;;
     ob|opsbots)
       profile="opsbots"
+      ;;
+    pa|paymentapproved)
+      profile="paymentapproved"
       ;;
     rs|russelltsherman)
       profile="russelltsherman"
