@@ -11,16 +11,15 @@ fi
 file="${XDG_CONFIG_HOME}/active/profile"
 
 be(){
-  
   if [[ -f "$file" ]]
-    ACTIVE_PROFILE="$(cat "$file")"
   then
+    ACTIVE_PROFILE="$(cat "$file")"
   fi
 
   profile=${1:-$ACTIVE_PROFILE}
 
   case $profile in
-    bh|ef|blockhenge)
+    bh|bhco|ef|blockhenge)
       profile="blockhenge"
       ;;
     fb|finbotsdev)
@@ -39,6 +38,14 @@ be(){
       profile="none"
       ;;
   esac
+
+  if [ "$ACTIVE_PROFILE" != "$profile" ]
+  then
+    echo "changing active profile from $ACTIVE_PROFILE to $profile"
+  else
+    # echo "$ACTIVE_PROFILE"
+    :
+  fi
 
   echo "$profile" > "$file"
   ACTIVE_PROFILE="$profile"
