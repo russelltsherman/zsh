@@ -10,5 +10,7 @@ then
   export GITLABBER_CLONE_METHOD="ssh"
 else
   unset GITLAB_TOKEN
+  unset GITLAB_URL
+  unset GITLABBER_CLONE_METHOD
 fi
 
