@@ -73,6 +73,9 @@ be(){
     # ssh-add -l
   fi
 
+  # clear kubectl configuration
+  rm -rf ${HOME}/.kube
+
   # refresh mfa configuration
   if [[ -d ${HOME}/.config/mfa/${profile} ]] 
   then
