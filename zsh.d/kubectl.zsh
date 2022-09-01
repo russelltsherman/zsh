@@ -1,6 +1,6 @@
 if chk::command "kubectl"
 then
-  alias kc='kubectl'
+  alias k='kubectl'
 
   eval $(kubectl completion "zsh")
 fi
