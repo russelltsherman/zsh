@@ -22,7 +22,7 @@ be(){
     bh|bhco|ef|blockhenge)
       profile="blockhenge"
       ;;
-    fb|finbotsdev)
+    fb|finbots|finbotsdev)
       profile="finbotsdev"
       ;;
     ob|opsbots)
@@ -30,6 +30,9 @@ be(){
       ;;
     pa|paymentapproved)
       profile="paymentapproved"
+      ;;
+    po|palolo)
+      profile="palolo"
       ;;
     rs|russelltsherman)
       profile="russelltsherman"
@@ -52,17 +55,31 @@ be(){
   export ACTIVE_PROFILE
 
   # refresh aws configuration
-  if [[  -d ${HOME}/.aws/${profile} ]]
+  if [[  -d ${HOME}/.config/profiles/${profile}/aws ]]
   then
     find ~/.aws -type f -maxdepth 1 -exec rm -rf {} \;
-    cp ${HOME}/.aws/${profile}/*  ${HOME}/.aws
+    cp ${HOME}/.config/profiles/${profile}/aws/*  ${HOME}/.aws
+  fi
+
+  # refresh github configuration
+  if [[  -d ${HOME}/.config/profiles/${profile}/github ]]
+  then
+    find ~/.config/github -type f -maxdepth 1 -exec rm -rf {} \;
+    cp ${HOME}/.config/profiles/${profile}/github/*  ${HOME}/.config/github
+  fi
+
+  # refresh gitlab configuration
+  if [[  -d ${HOME}/.config/profiles/${profile}/gitlab ]]
+  then
+    find ~/.config/gitlab -type f -maxdepth 1 -exec rm -rf {} \;
+    cp ${HOME}/.config/profiles/${profile}/gitlab/*  ${HOME}/.config/gitlab
   fi
 
   # refresh ssh configuration
-  if [[ -d ${HOME}/.ssh/${profile} ]] 
+  if [[ -d ${HOME}/.config/profiles/${profile}/ssh ]] 
   then
     find ~/.ssh -type f -maxdepth 1 -exec rm -rf {} \;
-    cp ${HOME}/.ssh/${profile}/*  ${HOME}/.ssh
+    cp ${HOME}/.config/profiles/${profile}/ssh/*  ${HOME}/.ssh
     # refresh ssh-agent keys
     ssh-add -D &> /dev/null
     for key in ${HOME}/.ssh/id_*; do
@@ -77,13 +94,13 @@ be(){
   rm -rf ${HOME}/.kube
 
   # refresh mfa configuration
-  if [[ -d ${HOME}/.config/mfa/${profile} ]] 
+  if [[ -d ${HOME}/.config/profiles/${profile}/mfa ]] 
   then
     find ${HOME}/.config/mfa -type f -maxdepth 1 -exec rm -rf {} \;
-    key_count=$(ls ${HOME}/.config/mfa/${profile} | wc -l)
+    key_count=$(ls ${HOME}/.config/profiles/${profile}/mfa | wc -l)
     if [[ ! $key_count -eq 0 ]]
     then
-      cp ${HOME}/.config/mfa/${profile}/*  ${HOME}/.config/mfa
+      cp ${HOME}/.config/profiles/${profile}/mfa/*  ${HOME}/.config/mfa
     fi
   fi
 
