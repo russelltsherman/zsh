@@ -6,5 +6,15 @@ fi
 
 if chk::osx
 then
-  eval $(/opt/homebrew/bin/brew shellenv)
+  f=/opt/homebrew/bin/brew
+  if test -f "$f"
+  then
+    eval $($f shellenv)
+  fi
+
+  f=/usr/local/bin/brew
+  if test -f "$f"
+  then
+    eval $($f shellenv)
+  fi
 fi
